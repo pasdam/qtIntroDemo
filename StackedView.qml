@@ -6,13 +6,57 @@ StackView {
 
     initialItem: contactList
 
+    property int transitionDuration: 400
+
+    pushEnter: Transition {
+        SequentialAnimation {
+            PauseAnimation {
+                duration: transitionDuration
+            }
+            PropertyAnimation {
+                property: "scale"
+                from: 0
+                to: 1
+                duration: transitionDuration
+            }
+        }
+
+    }
+    pushExit: Transition {
+        PropertyAnimation {
+            property: "scale"
+            from: 1
+            to: 0
+            duration: transitionDuration
+        }
+    }
+    popEnter: Transition {
+        SequentialAnimation {
+            PauseAnimation {
+                duration: transitionDuration
+            }
+            PropertyAnimation {
+                property: "scale"
+                from: 0
+                to: 1
+                duration: transitionDuration
+            }
+        }
+    }
+    popExit: Transition {
+        PropertyAnimation {
+            property: "scale"
+            from: 1
+            to: 0
+            duration: transitionDuration
+        }
+    }
+
     ContactList {
         id: contactList
 
         width: root.width
         height: root.height
-
-        visible: false
 
         onContactClicked: root.push(messageList)
     }
@@ -23,6 +67,8 @@ StackView {
         width: root.width
         height: root.height
 
-        visible:false
+        visible: false
+
+        scale: 0
     }
 }
