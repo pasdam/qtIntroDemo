@@ -12,6 +12,11 @@ ApplicationWindow {
         RowLayout {
             anchors.fill: parent
 
+            ToolButton {
+                text: "‹"
+                onClicked: stackedView.pop()
+            }
+
             Label {
                 text: "Amazing chat"
                 elide: Label.ElideRight
@@ -22,7 +27,9 @@ ApplicationWindow {
         }
     }
 
-    SideView {
+    StackedView {
+        id: stackedView
+
         anchors.fill: parent
     }
 }
