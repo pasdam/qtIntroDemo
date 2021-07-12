@@ -3,10 +3,9 @@ import QtQuick 2.0
 Row {
     id: root
 
-    Placeholder {
+    ContactList {
         width: parent.width * 0.3
-        border.color: "green"
-        text: qsTr("Contact list")
+        height: parent.height
     }
 
     Rectangle {
@@ -17,9 +16,8 @@ Row {
         opacity: 0.5
     }
 
-    Placeholder {
+    MessageList {
         width: parent.width * 0.7
-        border.color: "blue"
-        text: qsTr("Message list")
+        height: parent.height
     }
 }

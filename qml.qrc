@@ -3,5 +3,7 @@
         <file>main.qml</file>
         <file>SideView.qml</file>
         <file>Placeholder.qml</file>
+        <file>ContactList.qml</file>
+        <file>MessageList.qml</file>
     </qresource>
 </RCC>
