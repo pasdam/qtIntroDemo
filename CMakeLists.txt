@@ -18,6 +18,8 @@ qt_add_qml_module(qtIntroDemo
     VERSION 1.0
     QML_FILES
         Main.qml
+        ContactList.qml
+        MessageList.qml
         Placeholder.qml
         SideView.qml
 )
