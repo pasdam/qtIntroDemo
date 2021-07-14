@@ -20,6 +20,7 @@ qt_add_qml_module(qtIntroDemo
         Main.qml
         ContactList.qml
         MessageList.qml
+        MessagesModel.qml
         Placeholder.qml
         SideView.qml
         StackedView.qml

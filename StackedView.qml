@@ -58,7 +58,7 @@ StackView {
         width: root.width
         height: root.height
 
-        onContactClicked: root.push(messageList)
+        onContactClicked: root.push(messageList, {uid: uid})
     }
 
     MessageList {
