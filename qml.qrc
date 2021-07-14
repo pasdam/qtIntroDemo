@@ -6,5 +6,6 @@
         <file>ContactList.qml</file>
         <file>MessageList.qml</file>
         <file>StackedView.qml</file>
+        <file>MessagesModel.qml</file>
     </qresource>
 </RCC>

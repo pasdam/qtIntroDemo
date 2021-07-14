@@ -6,6 +6,8 @@ Row {
     ContactList {
         width: parent.width * 0.3
         height: parent.height
+
+        onContactClicked: messageList.uid = uid
     }
 
     Rectangle {
@@ -17,6 +19,8 @@ Row {
     }
 
     MessageList {
+        id: messageList
+
         width: parent.width * 0.7
         height: parent.height
     }
