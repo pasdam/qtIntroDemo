@@ -1,6 +1,10 @@
 import QtQuick 2.0
+import QtQuick.Layouts 1.12
+import QtQuick.Controls 2.12
 
 Item {
+    id: root
+
     width: parent.width * 0.7
 
     property string uid
@@ -13,8 +17,11 @@ Item {
         id: listview
 
         anchors.fill: parent
+        anchors.bottomMargin: 50
 
-        model: messagesModel.retrieveMessages(uid)
+        model: messagesModel.retrieveMessages(root.uid)
+
+        clip: true
 
         delegate: Item {
             height: childrenRect.height
@@ -61,6 +68,49 @@ Item {
 
                 text: model.dateTime
             }
+        }
+    }
+
+    Rectangle {
+        width: parent.width
+        height: 2
+
+        anchors.bottom: listview.bottom
+
+        visible: root.uid ? true : false
+
+        color: "black"
+        opacity: 0.5
+    }
+
+    RowLayout {
+        anchors.top: listview.bottom
+        anchors.left: parent.left
+        anchors.leftMargin: 10
+        anchors.right: parent.right
+        anchors.rightMargin: 10
+        height: 50
+
+        visible: root.uid ? true : false
+
+        TextInput {
+            id: input
+
+            height: parent.height
+
+            Layout.fillWidth: true
+        }
+
+        Button {
+            width: height
+            height: parent.height-20
+            background: Rectangle {
+                color: "darkgreen"
+                radius: 10
+            }
+            text: ">"
+
+            onClicked: messagesModel.sendMessage(root.uid, input.text)
         }
     }
 }

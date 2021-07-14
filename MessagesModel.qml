@@ -10,6 +10,22 @@ Item {
         }
     }
 
+    function sendMessage(id, message) {
+        var model = retrieveMessages(id)
+
+        let currentDate = new Date();
+        var dateTime =
+                currentDate.getFullYear() + "-" +
+                (currentDate.getMonth() + 1) + "-" +
+                currentDate.getDate() + " " +
+                currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+
+        model.append({
+            "dateTime": dateTime,
+            "message": message
+        })
+    }
+
     ListModel {
         id: uid1
 
